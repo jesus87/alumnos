@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Students.Core.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Compras de estudiantes</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th colspan="6" style="text-align:right;">
+                <ion-icon name="add-outline"></ion-icon> <a asp-action="Create"><span class="glyphicon glyphicon-plus"></span>Agregar compra</a>
+            </th>
+        </tr>
+        <tr>
+            <th>No Estudiante</th>
+            <th>Estudiante</th>
+            <th>Descripción</th>
+            <th>Total</th>
+            <th>Fecha de compra</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

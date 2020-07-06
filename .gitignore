@@ -1,0 +1,5 @@
+students/.vs/config/applicationhost.config
+students/.vs/
+students/Students.Core/obj/
+students/Students.Web/bin/
+students/Students.Web/obj/
